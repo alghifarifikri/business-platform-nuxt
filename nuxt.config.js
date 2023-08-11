@@ -36,7 +36,8 @@ export default {
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {},
-  // target: 'static',
+  target: 'static',
+  ssr: false,
   // router: {
   //   base: '/business-platform-nuxt/',
   // },
