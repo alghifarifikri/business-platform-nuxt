@@ -30,7 +30,7 @@
     <FilterModal
       :show="isShow"
       :is-loading="isLoading"
-      :list-category="data.data"
+      :list-category="listCategory"
       @handleModal="handleModal"
       @handleFilter="handleFilter"
     />
@@ -39,7 +39,7 @@
 
 <script>
 import _ from 'lodash'
-import { postBusinesses } from '../utils/Api'
+import { postBusinesses, getCategory } from '../utils/Api'
 import BusinessCard from '../components/BusinessCard.vue'
 import HeadCustom from '../components/HeadCustom.vue'
 import SearchBar from '../components/SearchBar.vue'
@@ -59,29 +59,12 @@ export default {
     FilterModal,
     NoData,
   },
-  async asyncData() {
-    try {
-      const headers = {
-        accept: '*/*',
-        'Accept-Language': 'id',
-        'Content-Type': 'application/json',
-      }
-      const response = await fetch(
-        'http://sandbox.bizharedev.id/media/param/business/category',
-        headers
-      )
-      const data = await response.json()
-      return { data }
-    } catch (error) {
-      console.error('Server-Side Fetching Error:', error)
-      return { data: null }
-    }
-  },
   data() {
     return {
       businessName: '',
       isLoading: false,
       isShow: false,
+      listCategory: [],
       listSelectedCategory: [],
       listBusiness: [],
       paging: {
@@ -119,6 +102,7 @@ export default {
   },
   mounted() {
     this.isLoading = true
+    this.getListCategory()
     this.postData()
   },
   methods: {
@@ -138,6 +122,16 @@ export default {
       this.isLoading = true
       this.postData(value)
     }, 300),
+    async getListCategory() {
+      try {
+        const response = await getCategory()
+        if (response?.length > 0) {
+          this.listCategory = response
+        }
+      } catch (e) {
+        this.isLoading = false
+      }
+    },
     async postData() {
       const requestBody = {
         businessName: this.businessName,
