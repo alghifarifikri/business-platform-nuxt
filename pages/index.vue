@@ -62,6 +62,7 @@ export default {
   async asyncData() {
     try {
       const headers = {
+        accept: '*/*',
         'Accept-Language': 'id',
         'Content-Type': 'application/json',
       }

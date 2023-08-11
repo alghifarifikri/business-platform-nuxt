@@ -1,4 +1,5 @@
 const headers = {
+  accept: '*/*',
   'Accept-Language': 'id',
   'Content-Type': 'application/json',
 }
