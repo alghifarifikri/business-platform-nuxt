@@ -1,5 +1,3 @@
-/* eslint-disable no-undef */
-
 import { HttpRequest } from './HttpRequest'
 
 export async function postBusinesses(data) {
