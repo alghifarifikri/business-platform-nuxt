@@ -11,6 +11,7 @@
 - JavaScript
 - Nuxt JS
 - TailwindCSS
+- Lodash
 
 ## How To Run :
 
