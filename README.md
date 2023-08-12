@@ -18,7 +18,7 @@
 2. Then type `https://github.com/alghifarifikri/business-platform-nuxt.git`
 3. Open the cloned folder by typing `cd business-platform-nuxt`.
 4. Then type `npm install` or `yarn install` to install dependencies.
-5. Then type `npm run dev` or `yarn dev`, because using vite.
+5. Then type `npm run dev` or `yarn dev`.
 
 ## Why Using Nuxt JS ?
 
