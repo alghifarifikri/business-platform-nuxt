@@ -8,6 +8,7 @@
 ## Specification
 
 - Node V.16
+- JavaScript
 - Nuxt JS
 - TailwindCSS
 
